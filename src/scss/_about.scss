@@ -1,1 +1,3 @@
-@use "variables";
+@use "variables" as *;
+@use "sass:color";
+@use "mixins" as *;

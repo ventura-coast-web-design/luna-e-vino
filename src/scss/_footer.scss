@@ -1,1 +1,16 @@
-@use "variables";
+@use "variables" as *;
+@use "sass:color";
+@use "mixins" as *;
+
+.site-footer {
+  padding-block: 2.2rem;
+  border-top: 1px solid rgba($tuscan-gold, 0.2);
+  background: rgba($dark-burgundy, 0.8);
+  backdrop-filter: blur(10px);
+  
+  .footer-bottom {
+    margin-top: 1.2rem;
+    text-align: center;
+    color: rgba($cream, 0.7);
+  }
+}

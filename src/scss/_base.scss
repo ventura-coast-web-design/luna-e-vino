@@ -1,29 +1,134 @@
-@use "variables";
+@use "variables" as *;
 @use "sass:color";
-// Typography
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+@use "mixins" as *;
+
+:root {
+  color-scheme: dark;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
-p {
-  margin-bottom: 1rem;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  color: variables.$primary-color;
-  text-decoration: none;
-  transition: color 0.2s ease;
+html,
+body {
+  height: 100%;
+}
 
+body {
+  margin: 0;
+  background: $charcoal;
+  color: $cream;
+  font-family: $font-sans;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.serif {
+  font-family: $font-serif;
+}
+
+.display {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+}
+
+.container {
+  @include container;
+}
+
+.section {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section--tinted {
+  background: rgba($tuscan-gold, 0.05);
+}
+
+.section--center {
+  text-align: center;
+}
+
+.lead {
+  font-size: 1.1rem;
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+.muted {
+  color: rgba($cream, 0.7);
+}
+
+.btn {
+  @include button-base;
+  border: 1px solid rgba($cream, 0.2);
+  background: rgba($cream, 0.1);
+  color: $cream;
+  backdrop-filter: blur(10px);
+  
   &:hover {
-    color: color.adjust(variables.$primary-color, $lightness: -10%);
+    box-shadow: $shadow;
+    background: rgba($cream, 0.15);
+    border-color: rgba($cream, 0.3);
   }
-} 
+}
+
+.btn--primary {
+  background: $chianti;
+  color: $cream;
+  border-color: $tuscan-gold;
+  
+  &:hover {
+    background: color.adjust($chianti, $lightness: 10%);
+    border-color: $warm-gold;
+  }
+}
+
+.btn--gold {
+  background: $tuscan-gold;
+  color: $dark-burgundy;
+  border-color: transparent;
+  
+  &:hover {
+    background: $warm-gold;
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: rgba($cream, 0.3);
+  
+  &:hover {
+    background: rgba($cream, 0.1);
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  
+  li {
+    padding: 0.25rem 0;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $gutter;
+  
+  @include media(900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @include media(640px) {
+    grid-template-columns: 1fr;
+  }
+}

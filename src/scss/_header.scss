@@ -1,1 +1,93 @@
-@use "variables";
+@use "variables" as *;
+@use "sass:color";
+@use "mixins" as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  background: rgba($dark-burgundy, 0.9);
+  border-bottom: 1px solid rgba($tuscan-gold, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  
+  .header-inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    gap: $gutter;
+    padding: 0.75rem 0;
+  }
+  
+  .brand {
+    font-family: $font-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: $cream;
+    text-decoration: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+      color: $warm-gold;
+    }
+  }
+  
+  .nav {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+    a {
+      text-decoration: none;
+      color: $cream;
+      font-weight: 600;
+      transition: color 0.3s $ease;
+      
+      &:hover {
+        color: $tuscan-gold;
+      }
+    }
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+  
+  @include media(820px) {
+    .nav {
+      position: fixed;
+      inset: 64px 0 auto 0;
+      background: rgba($dark-burgundy, 0.95);
+      padding: 1rem;
+      border-top: 1px solid rgba($tuscan-gold, 0.2);
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s $ease, transform 0.3s $ease;
+      flex-direction: column;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .nav[aria-expanded="true"] {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .nav-toggle {
+      display: inline-flex;
+      margin-left: auto;
+      @include button-base;
+      background: rgba($cream, 0.1);
+      border-color: rgba($tuscan-gold, 0.3);
+      color: $cream;
+      
+      &:hover {
+        background: rgba($cream, 0.15);
+        border-color: $warm-gold;
+      }
+    }
+  }
+}

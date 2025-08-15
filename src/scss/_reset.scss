@@ -1,4 +1,6 @@
-@use "variables";
+@use "variables" as *;
+@use "sass:color";
+@use "mixins" as *;
 // Reset and base styles
 * {
   margin: 0;
@@ -7,13 +9,5 @@
 }
 
 html {
-  font-size: variables.$font-size-base;
   scroll-behavior: smooth;
 }
-
-body {
-  font-family: variables.$font-family;
-  line-height: variables.$line-height-base;
-  color: variables.$text-color;
-  background-color: variables.$background-color;
-} 

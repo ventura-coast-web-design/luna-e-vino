@@ -1,22 +1,21 @@
-// Variables
-$primary-color: #2563eb;
-$secondary-color: #64748b;
-$accent-color: #f59e0b;
-$text-color: #1e293b;
-$light-text: #64748b;
-$background-color: #ffffff;
-$light-background: #f8fafc;
-$border-color: #e2e8f0;
+/* Brand palette - Dark candlelit Italian restaurant vibe */
+$chianti: #4A1A1A;        /* Deeper, darker burgundy */
+$tuscan-gold: #B8860B;     /* Richer, darker gold */
+$olive: #2F4F2F;           /* Darker olive green */
+$cream: #F5F5DC;           /* Warmer, more golden cream */
+$charcoal: #1A1A1A;        /* Deeper charcoal */
+$dark-burgundy: #2D0F0F;   /* Very dark burgundy for backgrounds */
+$warm-gold: #DAA520;       /* Warm gold for accents */
 
-$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-$font-size-base: 16px;
-$line-height-base: 1.6;
+/* Typography */
+$font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
 
-$container-max-width: 1200px;
-$container-padding: 1rem;
+/* Scale & layout */
+$container: 1120px;
+$gutter: 1.2rem;
+$radius: 12px;
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-// Breakpoints
-$breakpoint-sm: 640px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px; 
+/* Helpers */
+$ease: cubic-bezier(0.2, 0.7, 0.2, 1);
