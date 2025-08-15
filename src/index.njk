@@ -1,9 +1,121 @@
 ---
 layout: base.njk
-title: "Eleventy SCSS Template"
-description: "A simple, modern static website template built with Eleventy and SCSS"
+title: "Luna e Vino"
+description: "A modern italian restaurant in San Francisco"
 ---
 
-<div class="index">
-  INDEX
-</div>
+<!--hero-->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h1 class="display serif">{{ site.name }}</h1>
+      <p class="tagline">{{ site.tagline }}</p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn btn--primary">Reserve a Table</a>
+        <a href="#menu" class="btn btn--ghost">View Menu</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1736082140336-75b99ed4e354?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Handmade pasta and a glass of Chianti">
+    </figure>
+  </div>
+</section>
+
+<!--menu-->
+<section id="menu" class="section">
+  <div class="container">
+    <h2 class="serif section-title">Signature Dishes</h2>
+    <div class="cards">
+      {% set dishes = [
+        {img:"https://images.unsplash.com/photo-1663153465971-7fbb838043ca?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Cacio e Pepe", note:"Hand-rolled tonnarelli, pecorino romano, black pepper"},
+        {img:"https://images.unsplash.com/photo-1716816211582-ef70b1cd2e70?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Branzino al Limone", note:"Whole Mediterranean sea bass, lemon, capers"},
+        {img:"https://images.unsplash.com/photo-1707269388230-60ceceac3e6b?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Tiramisù Classico", note:"Savoiardi, espresso, mascarpone"}
+      ] %}
+      {% for d in dishes %}
+      <article class="card">
+        <img src="{{ d.img }}" alt="{{ d.name }}" loading="lazy">
+        <div class="card-body">
+          <h3 class="serif">{{ d.name }}</h3>
+          <p class="muted">{{ d.note }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="muted small">Seasonal menu changes frequently. Please ask your server for tonight’s selections.</p>
+  </div>
+</section>
+
+<!--cellar-->
+<section id="cellar" class="section section--tinted">
+  <div class="container">
+    <h2 class="serif section-title">La Cantina</h2>
+    <p class="lead">Curated Italian wines from Piemonte to Sicilia, overseen by our sommelier.</p>
+
+    <div class="cellar-grid">
+      <div class="cellar-feature">
+        <h3 class="serif">Barolo Vertical</h3>
+        <p class="muted">A rotating vertical from historic producers; limited pours nightly.</p>
+      </div>
+      <div class="cellar-feature">
+        <h3 class="serif">Orange & Natural</h3>
+        <p class="muted">Small producers working with ancient methods and indigenous varietals.</p>
+      </div>
+      <div class="cellar-feature">
+        <h3 class="serif">Dessert & Fortified</h3>
+        <p class="muted">Vin Santo, Marsala, and rare passito for a sweet finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--chef-->
+<section id="chef" class="section">
+  <div class="container split">
+    <figure class="photo">
+      <img src="https://images.unsplash.com/photo-1627929735467-c88e35a8ef6d?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Chef portrait" loading="lazy">
+    </figure>
+    <div>
+      <h2 class="serif section-title">Chef’s Story</h2>
+      <p class="lead">Raised on the Amalfi coast, trained in Milano — Chef Valentina marries coastal brightness with Northern technique.</p>
+      <p class="muted">We source DOP cheeses, single-estate olive oils, and California produce at peak season.</p>
+    </div>
+  </div>
+</section>
+
+<!--testimonials-->
+<section class="section section--tinted">
+  <div class="container quotes">
+    <blockquote>“Romance in every bite — Ventura’s most elegant dining room.” <cite>— Coastal Review</cite></blockquote>
+    <blockquote>“A wine list that reads like a love letter to Italy.” <cite>— Somm Notes</cite></blockquote>
+  </div>
+</section>
+
+<!--reserve-->
+<section id="reserve" class="section section--center">
+  <div class="container">
+    <h2 class="serif section-title">Reserve a Table</h2>
+    <p class="muted">Bookings available via OpenTable or by phone.</p>
+    <div class="actions">
+      <a href="#" class="btn btn--primary">OpenTable</a>
+      <a href="tel:{{ site.phone | replace(' ', '') }}" class="btn btn--ghost">Call {{ site.phone }}</a>
+    </div>
+  </div>
+</section>
+
+<!--location & hours-->
+<section class="section">
+  <div class="container split">
+    <div>
+      <h3 class="serif">Location & Hours</h3>
+      <p>{{ site.address }}</p>
+      <ul class="list">
+        <li><strong>Mon–Thu:</strong> {{ site.hours.weekdays }}</li>
+        <li><strong>Fri–Sun:</strong> {{ site.hours.weekends }}</li>
+      </ul>
+    </div>
+    <figure class="map">
+      <img src="/images/map-placeholder.jpg" alt="Map to the restaurant">
+    </figure>
+  </div>
+</section>
+

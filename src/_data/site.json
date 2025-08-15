@@ -1,0 +1,23 @@
+{
+    "name": "Luna e Vino",
+    "tagline": "Where Every Plate is a Love Story",
+    "colors": {
+      "chianti": "#6B1F28",
+      "tuscanGold": "#CDA349",
+      "olive": "#556B2F",
+      "cream": "#FAF4E8",
+      "charcoal": "#1F1F1F"
+    },
+    "address": "123 Via della Notte, Ventura, CA",
+    "phone": "(805) 555-0123",
+    "email": "ciao@lunaevino.example",
+    "hours": {
+      "weekdays": "5:00 PM — 10:00 PM",
+      "weekends": "5:00 PM — 11:00 PM"
+    },
+    "social": {
+      "instagram": "#",
+      "facebook": "#"
+    }
+  }
+  

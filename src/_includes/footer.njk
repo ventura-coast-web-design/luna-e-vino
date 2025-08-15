@@ -1,5 +1,19 @@
 <footer class="site-footer">
-    <div class="footer__container">
-        <p>&copy; {{ page.date.getFullYear() if page.date else '2024' }} Your Site. All rights reserved.</p>
+  <div class="container grid-3">
+    <div>
+      <h4 class="serif">{{ site.name }}</h4>
+      <p class="muted">{{ site.tagline }}</p>
     </div>
-</footer> 
+    <div>
+      <p><strong>Visit</strong><br>{{ site.address }}</p>
+      <p><strong>Hours</strong><br>Mon–Thu: {{ site.hours.weekdays }}<br>Fri–Sun: {{ site.hours.weekends }}</p>
+    </div>
+    <div>
+      <p><strong>Contact</strong><br><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <p><a href="{{ site.social.instagram }}">Instagram</a> · <a href="{{ site.social.facebook }}">Facebook</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <small>© {{ "" | year }} {{ site.name }}. All rights reserved.</small>
+  </div>
+</footer>
